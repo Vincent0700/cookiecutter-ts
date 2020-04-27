@@ -7,7 +7,7 @@
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "lint": "eslint --fix 'src/**/*.{js,ts,tsx}'"
+    "lint": "eslint --fix . && prettier --write ./**/*.{md,html,json,css,scss,less}"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
