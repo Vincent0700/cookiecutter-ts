@@ -8,13 +8,14 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-    "sourceMap": false,
+    "sourceMap": true,
+    "declaration": true,
     "outDir": "./dist"
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*.ts",
   ],
   "exclude": [
-    "./node_modules"
+    "node_modules"
   ]
 }
