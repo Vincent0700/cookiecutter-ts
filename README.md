@@ -15,15 +15,18 @@
 
 3. typescript 相关配置文件生成
     - tsconfig.json
+
+4. webpack 打包配置
+    - build/webpack.config.js
     
-3. eslint 相关配置文件生成
+5. eslint 相关配置文件生成
     - .eslintrc.js
     - .eslintignore
     - .prettierrc.js
     - .editorconfig
     - .vscode/settings.json
 
-4. 生成完毕后执行 `yarn install`
+6. 生成完毕后执行 `yarn install`
 
 ## Usage
 
@@ -42,4 +45,16 @@ project_name [project_name]: demo
 author [vincent0700 (https://vincentstudio.info)]:
 email [wang.yuanqiu007@gmail.com]:
 description [say somthing]: a demo project
+```
+
+3. eslint
+
+```bash
+yarn lint
+```
+
+5. build
+
+```bash
+yarn build
 ```
