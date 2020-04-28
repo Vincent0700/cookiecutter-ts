@@ -9,8 +9,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
+        test: /\.(ts|js)x?$/,
+        use: ['babel-loader', 'ts-loader'],
         exclude: /node_modules/
       }
     ]
@@ -19,6 +19,7 @@ module.exports = {
     new CleanWebpackPlugin()
   ],
   output: {
+    libraryTarget: 'commonjs2',
     filename: '{{ cookiecutter.project_name }}.min.js',
     path: path.resolve(__dirname, '../dist')
   }
