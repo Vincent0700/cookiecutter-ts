@@ -5,22 +5,34 @@ module.exports = {
   mode: 'production',
   devtool: 'cheap-module-source-map',
   entry: { index: './src/index.ts' },
-  resolve: { extensions: ['.tsx', '.ts', '.js'] },
+  target: 'node',
+  resolve: { 
+    extensions: ['.tsx', '.ts', '.js'] 
+  },
+  output: {
+    libraryTarget: 'commonjs',
+    filename: '{{ cookiecutter.project_name }}.min.js',
+    path: path.resolve(__dirname, '../dist')
+  },
   module: {
     rules: [
       {
         test: /\.(ts|js)x?$/,
-        use: ['babel-loader', 'ts-loader'],
-        exclude: /node_modules/
+        use: [
+          { loader:'babel-loader' },
+          {
+            loader:'ts-loader',
+            options: {
+              transpileOnly: true,
+              configFile: path.resolve(__dirname, '../tsconfig.json')
+            }
+          }
+        ],
+        exclude: '/node_modules/'
       }
     ]
   },
   plugins: [
     new CleanWebpackPlugin()
-  ],
-  output: {
-    libraryTarget: 'commonjs2',
-    filename: '{{ cookiecutter.project_name }}.min.js',
-    path: path.resolve(__dirname, '../dist')
-  }
+  ]
 };
