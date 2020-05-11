@@ -1,14 +1,14 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { BannerPlugin } = require('webpack');
+const ChmodWebpackPlugin = require('chmod-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: 'production',
   devtool: 'cheap-module-source-map',
   entry: { index: './src/index.ts' },
-  target: 'node',
-  resolve: { 
-    extensions: ['.tsx', '.ts', '.js'] 
-  },
+  resolve: { extensions: ['.tsx', '.ts', '.js'] },
   output: {
     libraryTarget: 'commonjs',
     filename: '{{ cookiecutter.project_name }}.min.js',
@@ -18,21 +18,17 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|js)x?$/,
-        use: [
-          { loader:'babel-loader' },
-          {
-            loader:'ts-loader',
-            options: {
-              transpileOnly: true,
-              configFile: path.resolve(__dirname, '../tsconfig.json')
-            }
-          }
-        ],
+        use: ['babel-loader'],
         exclude: '/node_modules/'
       }
     ]
   },
   plugins: [
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new BannerPlugin({ banner: "#!/usr/bin/env node", raw: true }),
+    new ChmodWebpackPlugin(
+      [{ path: path.resolve(__dirname, '../dist/test-ts.min.js'), mode: 755 }]
+    ),
+    // new BundleAnalyzerPlugin()
   ]
 };
