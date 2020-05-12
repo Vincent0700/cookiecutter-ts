@@ -27,7 +27,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new BannerPlugin({ banner: "#!/usr/bin/env node", raw: true }),
     new ChmodWebpackPlugin(
-      [{ path: path.resolve(__dirname, '../dist/test-ts.min.js'), mode: 755 }]
+      [{ path: path.resolve(__dirname, '../dist/{{ cookiecutter.project_name }}.min.js'), mode: 755 }]
     ),
     // new BundleAnalyzerPlugin()
   ]
