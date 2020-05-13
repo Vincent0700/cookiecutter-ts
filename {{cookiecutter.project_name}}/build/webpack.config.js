@@ -8,6 +8,7 @@ module.exports = {
   mode: 'production',
   devtool: 'cheap-module-source-map',
   entry: { index: './src/index.ts' },
+  target: 'node',
   resolve: { extensions: ['.tsx', '.ts', '.js'] },
   output: {
     libraryTarget: 'commonjs',
