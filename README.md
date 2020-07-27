@@ -26,7 +26,7 @@
     - .editorconfig
     - .vscode/settings.json
 
-6. 生成完毕后执行 `yarn install`
+6. 生成完毕后执行 `npm install`
 
 ## Usage
 
@@ -50,11 +50,11 @@ description [say somthing]: a demo project
 3. eslint
 
 ```bash
-yarn lint
+npm run lint
 ```
 
 5. build
 
 ```bash
-yarn build
+npm run build
 ```
