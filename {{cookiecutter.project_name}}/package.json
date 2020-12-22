@@ -9,9 +9,9 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "webpack --config=./build/webpack.dev.config.ts --watch",
-    "build": "webpack --config=./build/webpack.prod.config.ts",
-    "lint": "eslint --fix ./src/**/*.ts && prettier --write ./**/*.{md,html,json,css,scss,less}"
+    "dev": "webpack --config=./build/webpack.dev.config.js --watch",
+    "build": "webpack --config=./build/webpack.prod.config.js",
+    "lint": "eslint --fix ./src/**/*.js && prettier --write ./**/*.{md,html,json,css,scss,less}"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -21,9 +21,7 @@
     "@babel/preset-env": "^7.9.5",
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^11.0.0",
-    "@types/friendly-errors-webpack-plugin": "^0.1.2",
     "@types/node": "^13.13.25",
-    "@types/webpack": "^4.41.22",
     "@typescript-eslint/eslint-plugin": "^2.19.2",
     "@typescript-eslint/parser": "^2.19.2",
     "babel-loader": "^8.1.0",
